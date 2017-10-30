@@ -5,8 +5,8 @@ define(['oneWayModel'], function(oneWayModel) {
 		}
 
 		static printList(){
-			var finalList = "Head->";
-			var pointer = oneWayModel;
+			let finalList = "Head->";
+			let pointer = oneWayModel;
 			while(pointer.next !== null && pointer.next !== undefined){
 				finalList += pointer.next.value + "->";
 				pointer = pointer.next;

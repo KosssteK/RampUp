@@ -7,7 +7,12 @@ requirejs.config({
 		OneWayModel: 'model/OneWayModel',
 		OneWayNodeModel: 'model/OneWayNodeModel',
 		OneWayController: 'controller/OneWayController',
-		OneWay: 'view/OneWay'
+		OneWay: 'view/OneWay',
+		TwoWayModel: 'model/TwoWayModel',
+		TwoWayNodeModel: 'model/TwoWayNodeModel',
+		TwoWayController: 'controller/TwoWayController',
+		TwoWay: 'view/TwoWay'
+
 	}
 });
 require(['main']);

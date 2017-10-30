@@ -10,4 +10,8 @@ define('oneWayModel', ['OneWayModel'], function(OneWayModel) {
 	return new OneWayModel();
 });
 
+define('twoWayModel', ['TwoWayModel'], function(TwoWayModel) {
+	return new TwoWayModel();
+});
+
 require(['game']);
