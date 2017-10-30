@@ -13,10 +13,16 @@ define('game',['QuickSortController', 'OneWayController', 'OneWay', 'TwoWayContr
 	OneWayController.removeByValue(33);
 	OneWay.setDivValues();
 
-	// TwoWayController.addToList(10);
-	// TwoWayController.addToList(5);
-	// TwoWayController.addToList(6);
-	// TwoWay.setDivValues();
+	TwoWayController.addToList(1);
+	TwoWayController.addToList(2);
+	TwoWayController.addToList(3);
+	TwoWayController.addToList(4);
+	TwoWayController.addToList(5);
+	TwoWayController.addToList(6);
+	TwoWayController.removeFromList();
+	TwoWayController.removeFromPosition(1);
+	TwoWayController.removeByValue(4);
+	TwoWay.setDivValues();
 
 
 
