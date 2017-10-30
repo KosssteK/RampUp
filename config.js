@@ -5,7 +5,9 @@ requirejs.config({
 		QuickSortModel: 'model/QuickSortModel',
 		QuickSortController: 'controller/QuickSortController',
 		OneWayModel: 'model/OneWayModel',
-		OneWayNodeModel: 'model/OneWayNodeModel'
+		OneWayNodeModel: 'model/OneWayNodeModel',
+		OneWayController: 'controller/OneWayController',
+		OneWay: 'view/OneWay'
 	}
 });
 require(['main']);

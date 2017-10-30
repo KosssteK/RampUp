@@ -1,9 +1,9 @@
 define([], function() {
 
 	function QuickSort() {
-		this.listLabel = document.getElementById('listLabel');
-		this.isAscendingLabel = document.getElementById('isAscendingLabel');
-		this.sortedListLabel = document.getElementById('sortedListLabel');
+		this.listLabel = document.getElementById('output1');
+		this.isAscendingLabel = document.getElementById('output2');
+		this.sortedListLabel = document.getElementById('output3');
 	}
 
 	QuickSort.prototype.setDivsValues = function(options) {

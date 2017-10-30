@@ -1,8 +1,8 @@
 define([], function (){
 
 	class OneWayNodeModel {
-		constructor() {
-			this.length = 0;
+		constructor(data) {
+			this.value = data;
 			this.next = null;
 		}
 	}
