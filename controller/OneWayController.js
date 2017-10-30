@@ -24,10 +24,12 @@ define(['oneWayModel', 'OneWayNodeModel'], function(oneWayModel, OneWayNodeModel
 		}
 
 		static removeFromPosition(positionToRemove) {
-			if (positionToRemove <= oneWayModel.length) {
+			if (positionToRemove <= oneWayModel.length && positionToRemove > 1) {
 				let previousNode = this.getPreviousNode(positionToRemove);
 				let actualNode = previousNode.next;
 				this.removeNode(previousNode, actualNode);
+			}else{
+				this.removeFromList();
 			}
 		}
 

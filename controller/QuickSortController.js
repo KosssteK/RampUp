@@ -26,18 +26,18 @@ define(['quickSortModel', 'quickSort'], function(quickSortModel, quickSort) {
 
 	QuickSortController.prototype.sortValueTable = function(left, right) {
 		if (left < right) {
-			var middle = this.divideValueTable(left, right);
+			let middle = this.divideValueTable(left, right);
 			this.sortValueTable(left, middle - 1);
 			this.sortValueTable(middle + 1, right);
 		}
 	};
 
 	QuickSortController.prototype.divideValueTable = function(left, right) {
-		var partitionPoint = this.findPartitionPoint(left, right);
-		var partitionValue = quickSortModel.valueTable[partitionPoint];
+		let partitionPoint = this.findPartitionPoint(left, right);
+		let partitionValue = quickSortModel.valueTable[partitionPoint];
 		this.changePlaces(partitionPoint, right);
-		var currentPoint = left;
-		for (var position = left; position <= (right - 1); position++) {
+		let currentPoint = left;
+		for (let position = left; position <= (right - 1); position++) {
 			if (quickSortModel.valueTable[position] < partitionValue) {
 				this.changePlaces(position, currentPoint);
 				currentPoint = currentPoint + 1;
@@ -52,7 +52,7 @@ define(['quickSortModel', 'quickSort'], function(quickSortModel, quickSort) {
 	};
 
 	QuickSortController.prototype.changePlaces = function(point1, point2) {
-		var placeHolder = quickSortModel.valueTable[point1];
+		let placeHolder = quickSortModel.valueTable[point1];
 		quickSortModel.valueTable[point1] = quickSortModel.valueTable[point2];
 		quickSortModel.valueTable[point2] = placeHolder;
 	};

@@ -7,15 +7,15 @@ define([], function() {
 	}
 
 	QuickSortModel.prototype.addRandomNumbers = function() {
-		for (var column = 0; column < this.tableLength; column++) {
+		for (let column = 0; column < this.tableLength; column++) {
 			this.valueTable[column] = Math.round(Math.random() * 50 + 1);
 		}
 		this.originalOrderedTable = this.valueTable.slice(0);
 	};
 
 	QuickSortModel.prototype.convertTableToString = function(table) {
-		var valueTableToString = "";
-		for (var column = 0; column < table.length; column++) {
+		let valueTableToString = "";
+		for (let column = 0; column < table.length; column++) {
 			valueTableToString += table[column];
 			if (column !== table.length - 1) valueTableToString += " - ";
 		}
@@ -23,7 +23,7 @@ define([], function() {
 	};
 
 	QuickSortModel.prototype.isAscending = function() {
-		for(var column = 0; column < this.valueTable.length-2; column++) {
+		for(let column = 0; column < this.valueTable.length-2; column++) {
 			if(this.valueTable[column] > this.valueTable[column+1]){
 				return false;
 			}
