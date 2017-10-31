@@ -1,4 +1,4 @@
-define(['queueModel', 'OneWayNodeModel', 'OneWayController'], function(queueModel, OneWayNodeModel, OneWayController) {
+define(['queueModel', 'OneWayNodeModel', 'OneWayController', 'Queue'], function(queueModel, OneWayNodeModel, OneWayController, Queue) {
 
 	class QueueController {
 
@@ -15,10 +15,6 @@ define(['queueModel', 'OneWayNodeModel', 'OneWayController'], function(queueMode
 		}
 
 		static removeFromQueue() {
-			this.removeFromLastPosition();
-		}
-
-		static removeFromLastPosition() {
 			let previousNode = this.getPreviousNode(queueModel.length);
 			let actualNode = previousNode.next;
 			OneWayController.removeNode(previousNode, actualNode);
@@ -30,6 +26,10 @@ define(['queueModel', 'OneWayNodeModel', 'OneWayController'], function(queueMode
 				previousNode = previousNode.next;
 			}
 			return previousNode;
+		}
+
+		static print(){
+			Queue.setDivValues();
 		}
 	}
 

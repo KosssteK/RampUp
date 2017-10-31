@@ -14,8 +14,10 @@ requirejs.config({
 		TwoWay: 'view/TwoWay',
 		QueueModel: 'model/QueueModel',
 		QueueController: 'controller/QueueController',
-		Queue: 'view/Queue'
-
+		Queue: 'view/Queue',
+		StackModel: 'model/StackModel',
+		StackController: 'controller/StackController',
+		Stack: 'view/Stack'
 	}
 });
 require(['main']);

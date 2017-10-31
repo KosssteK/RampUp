@@ -1,6 +1,7 @@
-define('game', ['QuickSortController', 'OneWayController', 'OneWay', 'TwoWayController', 'TwoWay', 'QueueController', 'Queue'], function(QuickSortController, OneWayController, OneWay, TwoWayController, TwoWay, QueueController, Queue) {
+define('game', ['QuickSortController', 'OneWayController', 'TwoWayController', 'QueueController', 'StackController'], function(QuickSortController, OneWayController, TwoWayController, QueueController, StackController) {
 
 	new QuickSortController();
+
 	OneWayController.addToList(1);
 	OneWayController.addToList(2);
 	OneWayController.addToList(3);
@@ -11,7 +12,7 @@ define('game', ['QuickSortController', 'OneWayController', 'OneWay', 'TwoWayCont
 	OneWayController.removeFromPosition(5);
 	OneWayController.removeByValue(3);
 	OneWayController.removeByValue(33);
-	OneWay.setDivValues();
+	TwoWayController.print();
 
 	TwoWayController.addToList(1);
 	TwoWayController.addToList(2);
@@ -22,13 +23,20 @@ define('game', ['QuickSortController', 'OneWayController', 'OneWay', 'TwoWayCont
 	TwoWayController.removeFromList();
 	TwoWayController.removeFromPosition(1);
 	TwoWayController.removeByValue(4);
-	TwoWay.setDivValues();
+	TwoWayController.print();
 
 	QueueController.addToQueue(5);
 	QueueController.addToQueue(6);
 	QueueController.addToQueue(4);
 	QueueController.addToQueue(1);
 	QueueController.removeFromQueue();
-	Queue.setDivValues();
+	QueueController.print();
+
+	StackController.addToStack(7);
+	StackController.addToStack(5);
+	StackController.addToStack(1);
+	StackController.addToStack(3);
+	StackController.removeFromStack();
+	StackController.print();
 
 });
