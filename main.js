@@ -18,4 +18,8 @@ define('queueModel', ['QueueModel'], function(QueueModel) {
 	return new QueueModel();
 });
 
+define('stackModel', ['StackModel'], function(StackModel) {
+	return new StackModel();
+});
+
 require(['game']);

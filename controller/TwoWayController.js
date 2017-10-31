@@ -1,4 +1,4 @@
-define(['twoWayModel', 'TwoWayNodeModel'], function(twoWayModel, TwoWayNodeModel) {
+define(['twoWayModel', 'TwoWayNodeModel', 'TwoWay'], function(twoWayModel, TwoWayNodeModel, TwoWay) {
 
 	class TwoWayController {
 		constructor() {
@@ -67,6 +67,10 @@ define(['twoWayModel', 'TwoWayNodeModel'], function(twoWayModel, TwoWayNodeModel
 				previousNode = actualNode;
 				actualNode = actualNode.next;
 			}
+		}
+
+		static print(){
+			TwoWay.setDivValues();
 		}
 	}
 

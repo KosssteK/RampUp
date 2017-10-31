@@ -1,4 +1,4 @@
-define(['oneWayModel', 'OneWayNodeModel'], function(oneWayModel, OneWayNodeModel) {
+define(['oneWayModel', 'OneWayNodeModel', 'OneWay'], function(oneWayModel, OneWayNodeModel, OneWay) {
 
 	class OneWayController {
 
@@ -56,6 +56,10 @@ define(['oneWayModel', 'OneWayNodeModel'], function(oneWayModel, OneWayNodeModel
 				previousNode = actualNode;
 				actualNode = actualNode.next;
 			}
+		}
+
+		static print(){
+			OneWay.setDivValues();
 		}
 	}
 
