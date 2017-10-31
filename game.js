@@ -1,4 +1,4 @@
-define('game',['QuickSortController', 'OneWayController', 'OneWay', 'TwoWayController', 'TwoWay'], function(QuickSortController, OneWayController, OneWay, TwoWayController, TwoWay) {
+define('game', ['QuickSortController', 'OneWayController', 'OneWay', 'TwoWayController', 'TwoWay', 'QueueController', 'Queue'], function(QuickSortController, OneWayController, OneWay, TwoWayController, TwoWay, QueueController, Queue) {
 
 	new QuickSortController();
 	OneWayController.addToList(1);
@@ -24,8 +24,11 @@ define('game',['QuickSortController', 'OneWayController', 'OneWay', 'TwoWayContr
 	TwoWayController.removeByValue(4);
 	TwoWay.setDivValues();
 
-
-
-
+	QueueController.addToQueue(5);
+	QueueController.addToQueue(6);
+	QueueController.addToQueue(4);
+	QueueController.addToQueue(1);
+	QueueController.removeFromQueue();
+	Queue.setDivValues();
 
 });

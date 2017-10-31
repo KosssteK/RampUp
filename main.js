@@ -14,4 +14,8 @@ define('twoWayModel', ['TwoWayModel'], function(TwoWayModel) {
 	return new TwoWayModel();
 });
 
+define('queueModel', ['QueueModel'], function(QueueModel) {
+	return new QueueModel();
+});
+
 require(['game']);

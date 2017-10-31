@@ -1,8 +1,6 @@
 define(['oneWayModel', 'OneWayNodeModel'], function(oneWayModel, OneWayNodeModel) {
 
 	class OneWayController {
-		constructor() {
-		}
 
 		static addToList(value) {
 			let node = new OneWayNodeModel(value);

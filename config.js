@@ -11,7 +11,10 @@ requirejs.config({
 		TwoWayModel: 'model/TwoWayModel',
 		TwoWayNodeModel: 'model/TwoWayNodeModel',
 		TwoWayController: 'controller/TwoWayController',
-		TwoWay: 'view/TwoWay'
+		TwoWay: 'view/TwoWay',
+		QueueModel: 'model/QueueModel',
+		QueueController: 'controller/QueueController',
+		Queue: 'view/Queue'
 
 	}
 });
