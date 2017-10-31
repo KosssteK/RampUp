@@ -2,7 +2,7 @@ define(['oneWayModel', 'OneWayNodeModel', 'OneWay'], function(oneWayModel, OneWa
 
 	class OneWayController {
 
-		static addToList(value) {
+		static add(value) {
 			let node = new OneWayNodeModel(value);
 			if (!oneWayModel.next) {
 				oneWayModel.next = node;
@@ -14,7 +14,7 @@ define(['oneWayModel', 'OneWayNodeModel', 'OneWay'], function(oneWayModel, OneWa
 			oneWayModel.length++;
 		}
 
-		static removeFromList() {
+		static remove() {
 			let node = oneWayModel.next;
 			oneWayModel.next = node.next;
 			node = null;
@@ -27,7 +27,7 @@ define(['oneWayModel', 'OneWayNodeModel', 'OneWay'], function(oneWayModel, OneWa
 				let actualNode = previousNode.next;
 				this.removeNode(previousNode, actualNode);
 			}else{
-				this.removeFromList();
+				this.remove();
 			}
 		}
 

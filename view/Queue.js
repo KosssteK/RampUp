@@ -13,9 +13,7 @@ define(['queueModel'], function(queueModel) {
 		}
 
 		static setDivValues() {
-			document.getElementById('output1').innerHTML = this.printQueue();
-			document.getElementById('output2').innerHTML = '';
-			document.getElementById('output3').innerHTML = '';
+			document.getElementById('queue').innerHTML = this.printQueue();
 		}
 	}
 

@@ -2,7 +2,7 @@ define(['stackModel', 'OneWayNodeModel', 'Stack'], function(stackModel, OneWayNo
 
 	class StackController {
 
-		static addToStack(value) {
+		static add(value) {
 			let node = new OneWayNodeModel(value);
 			if (!stackModel.next) {
 				stackModel.next = node;
@@ -14,7 +14,7 @@ define(['stackModel', 'OneWayNodeModel', 'Stack'], function(stackModel, OneWayNo
 			stackModel.length++;
 		}
 
-		static removeFromStack() {
+		static remove() {
 			let node = stackModel.next;
 			stackModel.next = node.next;
 			node = null;

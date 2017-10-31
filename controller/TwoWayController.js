@@ -4,7 +4,7 @@ define(['twoWayModel', 'TwoWayNodeModel', 'TwoWay'], function(twoWayModel, TwoWa
 		constructor() {
 		}
 
-		static addToList(value) {
+		static add(value) {
 			let node = new TwoWayNodeModel(value);
 			if (!twoWayModel.next) {
 				twoWayModel.next = node;
@@ -17,7 +17,7 @@ define(['twoWayModel', 'TwoWayNodeModel', 'TwoWay'], function(twoWayModel, TwoWa
 			twoWayModel.length++;
 		}
 
-		static removeFromList() {
+		static remove() {
 			let node = twoWayModel.next;
 			twoWayModel.next = node.next;
 			twoWayModel.next.previous = null;
@@ -31,7 +31,7 @@ define(['twoWayModel', 'TwoWayNodeModel', 'TwoWay'], function(twoWayModel, TwoWa
 				let actualNode = previousNode.next;
 				this.removeNode(previousNode, actualNode);
 			}else{
-				this.removeFromList();
+				this.remove();
 			}
 		}
 
@@ -58,7 +58,7 @@ define(['twoWayModel', 'TwoWayNodeModel', 'TwoWay'], function(twoWayModel, TwoWa
 			while (actualNode.next) {
 				if (actualNode.value === valueToRemove) {
 					if(actualNode === twoWayModel.next){
-						this.removeFromList();
+						this.remove();
 					}else{
 						this.removeNode(previousNode, actualNode);
 					}

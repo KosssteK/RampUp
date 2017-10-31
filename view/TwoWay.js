@@ -35,9 +35,8 @@ define(['twoWayModel'], function(twoWayModel) {
 		}
 
 		static setDivValues() {
-			document.getElementById('output1').innerHTML = this.printList()[0];
-			document.getElementById('output2').innerHTML = this.printList()[1];
-			document.getElementById('output3').innerHTML = '';
+			document.getElementById('twoWay1').innerHTML = this.printList()[0];
+			document.getElementById('twoWay2').innerHTML = this.printList()[1];
 		}
 
 	}

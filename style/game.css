@@ -1,0 +1,9 @@
+body{
+    text-align: center;
+}
+
+.label {
+    display: inline-flex;
+    margin-left: 30px;
+    color: red;
+}

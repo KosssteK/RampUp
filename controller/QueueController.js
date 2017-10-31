@@ -2,7 +2,7 @@ define(['queueModel', 'OneWayNodeModel', 'OneWayController', 'Queue'], function(
 
 	class QueueController {
 
-		static addToQueue(value) {
+		static add(value) {
 			let node = new OneWayNodeModel(value);
 			if (!queueModel.next) {
 				queueModel.next = node;
@@ -14,7 +14,7 @@ define(['queueModel', 'OneWayNodeModel', 'OneWayController', 'Queue'], function(
 			queueModel.length++;
 		}
 
-		static removeFromQueue() {
+		static remove() {
 			let previousNode = this.getPreviousNode(queueModel.length);
 			let actualNode = previousNode.next;
 			OneWayController.removeNode(previousNode, actualNode);

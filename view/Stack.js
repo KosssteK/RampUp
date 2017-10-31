@@ -13,9 +13,7 @@ define(['stackModel'], function(stackModel) {
 		}
 
 		static setDivValues() {
-			document.getElementById('output1').innerHTML = this.printStack();
-			document.getElementById('output2').innerHTML = '';
-			document.getElementById('output3').innerHTML = '';
+			document.getElementById('stack').innerHTML = this.printStack();
 		}
 	}
 

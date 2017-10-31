@@ -16,9 +16,7 @@ define(['oneWayModel'], function(oneWayModel) {
 		};
 
 		static setDivValues(){
-			document.getElementById('output1').innerHTML = this.printList();
-			document.getElementById('output2').innerHTML = '';
-			document.getElementById('output3').innerHTML = '';
+			document.getElementById('oneWay').innerHTML = this.printList();
 		}
 
 	}
