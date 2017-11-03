@@ -15,6 +15,10 @@ requirejs.config({
 		StackModel: 'model/StackModel',
 		StackController: 'controller/StackController',
 		Stack: 'view/Stack',
+		TreeModel: 'model/TreeModel',
+		TreeNodeModel: 'model/TreeNodeModel',
+		Tree: 'view/Tree',
+		BSTController: 'controller/BSTController',
 		PageController: 'controller/PageController'
 	}
 });

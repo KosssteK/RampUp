@@ -22,4 +22,8 @@ define('stackModel', ['StackModel'], function(StackModel) {
 	return new StackModel();
 });
 
+define('treeModel', ['TreeModel'], function(TreeModel) {
+	return new TreeModel();
+});
+
 require(['game']);
