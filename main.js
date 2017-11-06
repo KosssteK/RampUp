@@ -1,11 +1,3 @@
-define('quickSortModel', ['QuickSortModel'], function(QuickSortModel) {
-	return new QuickSortModel(20);
-});
-
-define('quickSort', ['QuickSort'], function(QuickSort) {
-	return new QuickSort();
-});
-
 define('oneWayModel', ['OneWayModel'], function(OneWayModel) {
 	return new OneWayModel();
 });
@@ -24,6 +16,10 @@ define('stackModel', ['StackModel'], function(StackModel) {
 
 define('treeModel', ['TreeModel'], function(TreeModel) {
 	return new TreeModel();
+});
+
+define('heapModel', ['HeapModel'], function(HeapModel) {
+	return new HeapModel();
 });
 
 require(['game']);

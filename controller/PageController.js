@@ -1,5 +1,5 @@
-define(['OneWayController', 'TwoWayController', 'QueueController', 'StackController', 'BSTController'],
-	function(OneWayController, TwoWayController, QueueController, StackController, BSTController) {
+define(['OneWayController', 'TwoWayController', 'QueueController', 'StackController', 'BSTController', 'HeapController'],
+	function(OneWayController, TwoWayController, QueueController, StackController, BSTController, HeapController) {
 
 	class PageController {
 		constructor() {
@@ -50,6 +50,18 @@ define(['OneWayController', 'TwoWayController', 'QueueController', 'StackControl
 			BSTController.add(2);
 			BSTController.add(6);
 			BSTController.add(4);
+
+			HeapController.add(10);
+			HeapController.add(15);
+			HeapController.add(20);
+			HeapController.add(16);
+			HeapController.add(6);
+			HeapController.add(50);
+			HeapController.add(61);
+			HeapController.add(22);
+			HeapController.show();
+			HeapController.print();
+
 		}
 
 		print(){

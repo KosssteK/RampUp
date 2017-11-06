@@ -3,7 +3,7 @@ define([], function() {
 	class TreeNodeModel {
 		constructor(value) {
 			this.value = value;
-			this.visited = false;
+			this.parent = null;
 			this.left = null;
 			this.right = null;
 		}
