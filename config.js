@@ -19,6 +19,8 @@ requirejs.config({
 		TreeNodeModel: 'model/TreeNodeModel',
 		Tree: 'view/Tree',
 		BSTController: 'controller/BSTController',
+		HeapModel: 'model/HeapModel',
+		HeapController: 'controller/HeapController',
 		PageController: 'controller/PageController'
 	}
 });
