@@ -21,7 +21,8 @@ requirejs.config({
 		BSTController: 'controller/BSTController',
 		HeapModel: 'model/HeapModel',
 		HeapController: 'controller/HeapController',
-		PageController: 'controller/PageController'
+		PageController: 'controller/PageController',
+		DataStructureFactory: 'factory/DataStructureFactory'
 	}
 });
-require(['main']);
+require(['game']);

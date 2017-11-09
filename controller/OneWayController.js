@@ -1,28 +1,32 @@
-define(['oneWayModel', 'OneWayNodeModel', 'OneWay'], function(oneWayModel, OneWayNodeModel, OneWay) {
+define(['OneWayModel', 'OneWayNodeModel', 'OneWay'], function(OneWayModel, OneWayNodeModel, OneWay) {
 
 	class OneWayController {
 
-		static add(value) {
+		constructor(){
+			this.oneWayModel = new OneWayModel();
+		}
+
+		add(value) {
 			let node = new OneWayNodeModel(value);
-			if (!oneWayModel.next) {
-				oneWayModel.next = node;
+			if (!this.oneWayModel.next) {
+				this.oneWayModel.next = node;
 			}
 			else {
-				node.next = oneWayModel.next;
-				oneWayModel.next = node;
+				node.next = this.oneWayModel.next;
+				this.oneWayModel.next = node;
 			}
-			oneWayModel.length++;
+			this.oneWayModel.length++;
 		}
 
-		static remove() {
-			let node = oneWayModel.next;
-			oneWayModel.next = node.next;
+		remove() {
+			let node = this.oneWayModel.next;
+			this.oneWayModel.next = node.next;
 			node = null;
-			oneWayModel.length--;
+			this.oneWayModel.length--;
 		}
 
-		static removeFromPosition(positionToRemove) {
-			if (positionToRemove <= oneWayModel.length && positionToRemove > 1) {
+		removeFromPosition(positionToRemove) {
+			if (positionToRemove <= this.oneWayModel.length && positionToRemove > 1) {
 				let previousNode = this.getPreviousNode(positionToRemove);
 				let actualNode = previousNode.next;
 				this.removeNode(previousNode, actualNode);
@@ -31,22 +35,22 @@ define(['oneWayModel', 'OneWayNodeModel', 'OneWay'], function(oneWayModel, OneWa
 			}
 		}
 
-		static removeNode(previousNode, actualNode) {
+		removeNode(previousNode, actualNode) {
 			previousNode.next = actualNode.next;
 			actualNode = null;
-			oneWayModel.length--;
+			this.oneWayModel.length--;
 		}
 
-		static getPreviousNode(positionToRemove) {
-			let previousNode = oneWayModel;
+		getPreviousNode(positionToRemove) {
+			let previousNode = this.oneWayModel;
 			for (let position = 0; position < positionToRemove - 1; position++) {
 				previousNode = previousNode.next;
 			}
 			return previousNode;
 		}
 
-		static removeByValue(valueToRemove) {
-			let previousNode = oneWayModel;
+		removeByValue(valueToRemove) {
+			let previousNode = this.oneWayModel;
 			let actualNode = previousNode;
 			while (actualNode.next) {
 				if (actualNode.value === valueToRemove) {
@@ -58,8 +62,19 @@ define(['oneWayModel', 'OneWayNodeModel', 'OneWay'], function(oneWayModel, OneWa
 			}
 		}
 
-		static print(){
-			OneWay.setDivValues();
+		convertToString(){
+			let finalList = "Head->";
+			let pointer = this.oneWayModel;
+			while(pointer.next !== null && pointer.next !== undefined){
+				finalList += pointer.next.value + "->";
+				pointer = pointer.next;
+			}
+			finalList += "NULL";
+			return finalList;
+		}
+
+		print(){
+			OneWay.setDivValues(this.convertToString());
 		}
 	}
 

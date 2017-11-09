@@ -1,29 +1,33 @@
-define(['Tree', 'heapModel', 'TreeNodeModel'], function(Tree, heapModel, TreeNodeModel) {
+define(['Tree', 'HeapModel', 'TreeNodeModel'], function(Tree, HeapModel, TreeNodeModel) {
 
 	class HeapController {
 
-		static show() {
-			console.log(heapModel);
+		constructor(){
+			this.heapModel = new HeapModel();
 		}
 
-		static add(value) {
-			if (heapModel.start === null) {
-				heapModel.start = new TreeNodeModel(value);
-				heapModel.lastLeaf++;
+		show() {
+			console.log(this.heapModel);
+		}
+
+		add(value) {
+			if (this.heapModel.start === null) {
+				this.heapModel.start = new TreeNodeModel(value);
+				this.heapModel.lastLeaf++;
 			}
 			else {
 				this.addToHeap(value);
 			}
 		}
 
-		static addToHeap(value) {
-			let steps = this.findPathToLastLeaf(heapModel.lastLeaf);
+		addToHeap(value) {
+			let steps = this.findPathToLastLeaf(this.heapModel.lastLeaf);
 			let leaf = this.addValue(steps, value);
 			this.restoreHeap(leaf);
-			heapModel.lastLeaf++;
+			this.heapModel.lastLeaf++;
 		}
 
-		static findPathToLastLeaf(position) {
+		findPathToLastLeaf(position) {
 			let steps = [];
 			steps.unshift(position);
 			while (position !== 1) {
@@ -33,8 +37,8 @@ define(['Tree', 'heapModel', 'TreeNodeModel'], function(Tree, heapModel, TreeNod
 			return steps;
 		}
 
-		static addValue(steps, value) {
-			let nodePosition = heapModel.start;
+		addValue(steps, value) {
+			let nodePosition = this.heapModel.start;
 			let nodeParent = nodePosition;
 			for (let position = 1; position < steps.length - 1; position++) {
 				if (steps[position] % 2 === 0) {
@@ -59,14 +63,14 @@ define(['Tree', 'heapModel', 'TreeNodeModel'], function(Tree, heapModel, TreeNod
 
 		}
 
-		static restoreHeap(leaf) {
+		restoreHeap(leaf) {
 			let node = leaf;
-			while (node !== heapModel.start && node.value > node.parent.value) {
+			while (node !== this.heapModel.start && node.value > node.parent.value) {
 				node = this.changePositions(node, node.parent);
 			}
 		}
 
-		static changePositions(son, parent) {
+		changePositions(son, parent) {
 			let otherSon = null;
 			if (son === parent.left) {
 				otherSon = parent.right;
@@ -104,29 +108,29 @@ define(['Tree', 'heapModel', 'TreeNodeModel'], function(Tree, heapModel, TreeNod
 				}
 				parent.parent = son;
 			}
-			if (parent === heapModel.start) {
-				heapModel.start = son;
+			if (parent === this.heapModel.start) {
+				this.heapModel.start = son;
 			}
 			return son;
 		}
 
-		static print() {
+		print() {
 			let heapString = this.convertHeapToString();
 			Tree.setDivValues('heap', heapString);
 		}
 
-		static convertHeapToString() {
+		convertHeapToString() {
 			let steps = [];
-			let completeString = heapModel.start.value + "->";
-			for (let position = 2; position < heapModel.lastLeaf; position++) {
+			let completeString = this.heapModel.start.value + "->";
+			for (let position = 2; position < this.heapModel.lastLeaf; position++) {
 				steps = this.findPathToLastLeaf(position);
 				completeString += this.getHeapValue(steps);
 			}
 			return "Head->" + completeString + "NULL";
 		}
 
-		static getHeapValue(steps) {
-			let nodePosition = heapModel.start;
+		getHeapValue(steps) {
+			let nodePosition = this.heapModel.start;
 			let nodeParent = nodePosition;
 			for (let position = 1; position < steps.length - 1; position++) {
 				if (steps[position] % 2 === 0) {

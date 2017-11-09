@@ -1,18 +1,22 @@
-define(['Tree', 'treeModel', 'TreeNodeModel'], function(Tree, treeModel, TreeNodeModel) {
+define(['Tree', 'TreeModel', 'TreeNodeModel'], function(Tree, TreeModel, TreeNodeModel) {
 
 	class BSTController {
 
-		static add(value) {
+		constructor() {
+			this.treeModel = new TreeModel();
+		}
+
+		add(value) {
 			let node = new TreeNodeModel(value);
-			if (treeModel.start === null) {
-				treeModel.start = node;
+			if (this.treeModel.start === null) {
+				this.treeModel.start = node;
 			}
 			else {
-				this.addToTree(treeModel.start, node);
+				this.addToTree(this.treeModel.start, node);
 			}
 		}
 
-		static addToTree(father, son) {
+		addToTree(father, son) {
 			if (son.value < father.value) {
 				if (father.left) {
 					this.addToTree(father.left, son);
@@ -31,33 +35,33 @@ define(['Tree', 'treeModel', 'TreeNodeModel'], function(Tree, treeModel, TreeNod
 			}
 		}
 
-		static print() {
+		print() {
 			this.printOrder();
 			this.setOutputString();
 			this.setDives();
 		}
 
-		static setOutputString(){
-			treeModel.preorder = this.createOutputString(treeModel.preorder);
-			treeModel.inorder = this.createOutputString(treeModel.inorder);
-			treeModel.postorder = this.createOutputString(treeModel.postorder);
+		setOutputString() {
+			this.treeModel.preorder = "Pre-order: " + this.createOutputString(this.treeModel.preorder);
+			this.treeModel.inorder = "In-order: " + this.createOutputString(this.treeModel.inorder);
+			this.treeModel.postorder = "Post-order: " + this.createOutputString(this.treeModel.postorder);
 		}
 
-		static createOutputString(value){
+		createOutputString(value) {
 			let finalList = "Head->";
 			finalList += value;
 			finalList += "NULL";
 			return finalList;
 		}
 
-		static setDives(){
-			Tree.setDivValues("preorder", treeModel.preorder);
-			Tree.setDivValues("inorder", treeModel.inorder);
-			Tree.setDivValues("postorder", treeModel.postorder);
+		setDives() {
+			Tree.setDivValues("preorder", this.treeModel.preorder);
+			Tree.setDivValues("inorder", this.treeModel.inorder);
+			Tree.setDivValues("postorder", this.treeModel.postorder);
 		}
 
-		static printOrder() {
-			let pointer = treeModel;
+		printOrder() {
+			let pointer = this.treeModel;
 			if (pointer.start === null) {
 				console.log("Empty tree");
 			}
@@ -68,27 +72,27 @@ define(['Tree', 'treeModel', 'TreeNodeModel'], function(Tree, treeModel, TreeNod
 			}
 		}
 
-		static printPreorder(pointer) {
+		printPreorder(pointer) {
 			if (pointer) {
-				treeModel.preorder += pointer.value + "->";
+				this.treeModel.preorder += pointer.value + "->";
 				this.printPreorder(pointer.left);
 				this.printPreorder(pointer.right);
 			}
 		}
 
-		static printInorder(pointer) {
+		printInorder(pointer) {
 			if (pointer) {
 				this.printInorder(pointer.left);
-				treeModel.inorder += pointer.value + "->";
+				this.treeModel.inorder += pointer.value + "->";
 				this.printInorder(pointer.right);
 			}
 		}
 
-		static printPostorder(pointer) {
+		printPostorder(pointer) {
 			if (pointer) {
 				this.printPostorder(pointer.left);
 				this.printPostorder(pointer.right);
-				treeModel.postorder += pointer.value + "->";
+				this.treeModel.postorder += pointer.value + "->";
 			}
 		}
 

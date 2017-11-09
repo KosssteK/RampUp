@@ -1,35 +1,50 @@
-define(['queueModel', 'OneWayNodeModel', 'OneWayController', 'Queue'], function(queueModel, OneWayNodeModel, OneWayController, Queue) {
+define(['QueueModel', 'OneWayNodeModel', 'OneWayController', 'Queue'], function(QueueModel, OneWayNodeModel, OneWayController, Queue) {
 
 	class QueueController {
 
-		static add(value) {
-			let node = new OneWayNodeModel(value);
-			if (!queueModel.next) {
-				queueModel.next = node;
-			}
-			else {
-				node.next = queueModel.next;
-				queueModel.next = node;
-			}
-			queueModel.length++;
+		constructor(){
+			this.queueModel = new QueueModel();
 		}
 
-		static remove() {
-			let previousNode = this.getPreviousNode(queueModel.length);
+		add(value) {
+			let node = new OneWayNodeModel(value);
+			if (!this.queueModel.next) {
+				this.queueModel.next = node;
+			}
+			else {
+				node.next = this.queueModel.next;
+				this.queueModel.next = node;
+			}
+			this.queueModel.length++;
+		}
+
+		remove() {
+			let previousNode = this.getPreviousNode(this.queueModel.length);
 			let actualNode = previousNode.next;
 			OneWayController.removeNode(previousNode, actualNode);
 		}
 
-		static getPreviousNode(positionToRemove) {
-			let previousNode = queueModel;
+		getPreviousNode(positionToRemove) {
+			let previousNode = this.queueModel;
 			for (let position = 0; position < positionToRemove - 1; position++) {
 				previousNode = previousNode.next;
 			}
 			return previousNode;
 		}
 
-		static print(){
-			Queue.setDivValues();
+		convertToString(){
+			let finalList = "Head->";
+			let pointer = this.queueModel;
+			while (pointer.next) {
+				finalList += pointer.next.value + "->";
+				pointer = pointer.next;
+			}
+			finalList += "NULL";
+			return finalList;
+		}
+
+		print(){
+			Queue.setDivValues(this.convertToString());
 		}
 	}
 

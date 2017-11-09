@@ -1,28 +1,43 @@
-define(['stackModel', 'OneWayNodeModel', 'Stack'], function(stackModel, OneWayNodeModel, Stack) {
+define(['StackModel', 'OneWayNodeModel', 'Stack'], function(StackModel, OneWayNodeModel, Stack) {
 
 	class StackController {
 
-		static add(value) {
+		constructor(){
+			this.stackModel = new StackModel();
+		}
+
+		add(value) {
 			let node = new OneWayNodeModel(value);
-			if (!stackModel.next) {
-				stackModel.next = node;
+			if (!this.stackModel.next) {
+				this.stackModel.next = node;
 			}
 			else {
-				node.next = stackModel.next;
-				stackModel.next = node;
+				node.next = this.stackModel.next;
+				this.stackModel.next = node;
 			}
-			stackModel.length++;
+			this.stackModel.length++;
 		}
 
-		static remove() {
-			let node = stackModel.next;
-			stackModel.next = node.next;
+		remove() {
+			let node = this.stackModel.next;
+			this.stackModel.next = node.next;
 			node = null;
-			stackModel.length--;
+			this.stackModel.length--;
 		}
 
-		static print(){
-			Stack.setDivValues();
+		convertToString(){
+			let finalList = "Head->";
+			let pointer = this.stackModel;
+			while (pointer.next) {
+				finalList += pointer.next.value + "->";
+				pointer = pointer.next;
+			}
+			finalList += "NULL";
+			return finalList;
+		}
+
+		print(){
+			Stack.setDivValues(this.convertToString());
 		}
 	}
 
