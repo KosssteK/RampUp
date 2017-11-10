@@ -4,6 +4,7 @@ define(['OneWayModel', 'OneWayNodeModel', 'OneWay'], function(OneWayModel, OneWa
 
 		constructor(){
 			this.oneWayModel = new OneWayModel();
+			this.order = 0;
 		}
 
 		add(value) {

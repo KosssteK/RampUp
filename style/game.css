@@ -4,6 +4,9 @@ body{
 
 .label {
     display: inline-flex;
-    margin-left: 30px;
     color: red;
+}
+
+.designPattern{
+    color: blue;
 }

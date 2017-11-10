@@ -4,6 +4,7 @@ define(['QueueModel', 'OneWayNodeModel', 'OneWayController', 'Queue'], function(
 
 		constructor(){
 			this.queueModel = new QueueModel();
+			this.order = 2;
 		}
 
 		add(value) {

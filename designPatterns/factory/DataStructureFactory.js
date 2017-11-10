@@ -28,8 +28,18 @@ define(['OneWayController', 'TwoWayController', 'QueueController', 'StackControl
 					console.log("There is no other data structure");
 				}
 
+				dataStructure.printFactory = function() {
+					document.getElementsByClassName("designPattern")[dataStructure.order].innerHTML = "Factory";
+					dataStructure.print();
+				};
+
+				dataStructure.addValue = function(value){
+					dataStructure.add(value);
+				};
+
 				return dataStructure;
 			}
+
 
 		}
 

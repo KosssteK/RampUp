@@ -4,6 +4,7 @@ define(['Tree', 'HeapModel', 'TreeNodeModel'], function(Tree, HeapModel, TreeNod
 
 		constructor(){
 			this.heapModel = new HeapModel();
+			this.order = 5;
 		}
 
 		show() {

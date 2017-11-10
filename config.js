@@ -22,8 +22,8 @@ requirejs.config({
 		HeapModel: 'model/HeapModel',
 		HeapController: 'controller/HeapController',
 		PageController: 'controller/PageController',
-		DataStructureFactory: 'factory/DataStructureFactory',
-		Strategy: 'strategy/Strategy'
+		DataStructureFactory: 'designPatterns/factory/DataStructureFactory',
+		Strategy: 'designPatterns/strategy/Strategy'
 	}
 });
 require(['game']);

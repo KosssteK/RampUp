@@ -4,6 +4,7 @@ define(['Tree', 'TreeModel', 'TreeNodeModel'], function(Tree, TreeModel, TreeNod
 
 		constructor() {
 			this.treeModel = new TreeModel();
+			this.order = 4;
 		}
 
 		add(value) {

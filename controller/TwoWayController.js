@@ -3,6 +3,7 @@ define(['TwoWayModel', 'TwoWayNodeModel', 'TwoWay'], function(TwoWayModel, TwoWa
 	class TwoWayController {
 		constructor() {
 			this.twoWayModel = new TwoWayModel();
+			this.order = 1;
 		}
 
 		add(value) {

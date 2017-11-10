@@ -1,6 +1,6 @@
 define([], function() {
 
-	class StrategyController {
+	class Strategy {
 		constructor() {
 			this.dataType = null;
 		}
@@ -14,10 +14,11 @@ define([], function() {
 		}
 
 		print(){
+			document.getElementsByClassName("designPattern")[this.dataType.order].innerHTML = "Strategy";
 			this.dataType.print();
 		}
 
 	}
 
-	return StrategyController;
+	return Strategy;
 });

@@ -4,6 +4,7 @@ define(['StackModel', 'OneWayNodeModel', 'Stack'], function(StackModel, OneWayNo
 
 		constructor(){
 			this.stackModel = new StackModel();
+			this.order = 3;
 		}
 
 		add(value) {
