@@ -23,7 +23,14 @@ requirejs.config({
 		HeapController: 'controller/HeapController',
 		PageController: 'controller/PageController',
 		DataStructureFactory: 'designPatterns/factory/DataStructureFactory',
-		Strategy: 'designPatterns/strategy/Strategy'
+		Strategy: 'designPatterns/strategy/Strategy',
+		State: 'designPatterns/state/State',
+		Rotation: 'designPatterns/state/states/Rotation',
+		FirstRotation: 'designPatterns/state/states/FirstRotation',
+		SecondRotation: 'designPatterns/state/states/SecondRotation',
+		ThirdRotation: 'designPatterns/state/states/ThirdRotation',
+		FourthRotation: 'designPatterns/state/states/FourthRotation',
+		LastRotation: 'designPatterns/state/states/LastRotation'
 	}
 });
-require(['game']);
+require(['main']);
