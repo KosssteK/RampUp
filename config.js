@@ -32,7 +32,8 @@ requirejs.config({
 		FourthRotation: 'js/designPatterns/state/states/FourthRotation',
 		LastRotation: 'js/designPatterns/state/states/LastRotation',
 		TypesController: 'js/javaScript/TypesController',
-		Types: 'js/view/Types'
+		Types: 'js/view/Types',
+		ClosuresController: 'js/javaScript/ClosuresController'
 	}
 });
 require(['main']);

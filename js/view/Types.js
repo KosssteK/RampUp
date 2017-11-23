@@ -6,9 +6,7 @@ define([], function() {
 			document.getElementsByClassName('types')[0].innerHTML = "Primitive: " + primitive;
 			document.getElementsByClassName('types')[1].innerHTML = "Object: " + object.x;
 		}
-
 	}
 
 	return Types;
-
 });
