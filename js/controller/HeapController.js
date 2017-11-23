@@ -1,10 +1,16 @@
-define(['Tree', 'HeapModel', 'TreeNodeModel'], function(Tree, HeapModel, TreeNodeModel) {
+define(['Tree', 'HeapModel', 'TreeNodeModel', 'FunctionUtil', 'msg'], function(Tree, HeapModel, TreeNodeModel, FunctionUtil, msg) {
 
 	class HeapController {
 
 		constructor(){
+			FunctionUtil.bind(this);
 			this.heapModel = new HeapModel();
 			this.order = 5;
+			msg.on("final", this.onFinalState);
+		}
+
+		async onFinalState() {
+			console.log("Event emit has been executed! " + this.order);
 		}
 
 		show() {

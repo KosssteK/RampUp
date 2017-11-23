@@ -1,5 +1,5 @@
-define(['Rotation', 'BSTController', 'HeapController', 'OneWayController', 'QueueController', 'StackController', 'TwoWayController'],
-	function(Rotation, BSTController, HeapController, OneWayController, QueueController, StackController, TwoWayController) {
+define(['msg', 'Rotation', 'BSTController', 'HeapController', 'OneWayController', 'QueueController', 'StackController', 'TwoWayController'],
+	function(msg, Rotation, BSTController, HeapController, OneWayController, QueueController, StackController, TwoWayController) {
 
 		class LastRotation extends Rotation {
 			constructor(state) {
@@ -21,6 +21,7 @@ define(['Rotation', 'BSTController', 'HeapController', 'OneWayController', 'Queu
 				this.printData(this.stack);
 				this.printData(this.bst);
 				this.printData(this.heap);
+				msg.emit("final");
 			}
 
 			printData(dataStructure){

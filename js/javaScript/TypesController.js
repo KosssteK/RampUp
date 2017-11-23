@@ -1,9 +1,10 @@
-define(['Types'], function(Types) {
+define(['Types','msg', 'FunctionUtil'], function(Types, msg, FunctionUtil) {
 
 	class TypesController {
 
 		constructor(){
-			this.startValue = 5;
+			FunctionUtil.bind(this);
+			this.startValue = 90;
 			this.endValue = 7;
 		}
 
@@ -27,6 +28,11 @@ define(['Types'], function(Types) {
 
 		print(value, object) {
 			Types.print(value, object);
+			msg.on("final", this.onFinalState);
+		}
+
+		onFinalState(){
+			console.log("Event emit has been executed! " + this.startValue);
 		}
 	}
 

@@ -1,13 +1,14 @@
-define(['BSTController', 'HeapController'], function(BSTController, HeapController) {
+define(['BSTController', 'HeapController', 'ClosureTest'], function(BSTController, HeapController, ClosureTest) {
 
 	class ClosuresController {
 
 		constructor() {
-			this.order = 10;
+			this.order = 15;
 			this.type = "object";
 
 			let bst = new BSTController();
 			let heap = new HeapController();
+			let test = new ClosureTest();
 
 			this.multiplyValue(function(){
 				return this.order * 2;
@@ -23,6 +24,10 @@ define(['BSTController', 'HeapController'], function(BSTController, HeapControll
 				return this.order * 2;
 			}.bind(this));
 			console.log(this.multipliedOrder);
+
+			test.print();
+			test.print.apply(this);
+			test.print.call(this);
 		}
 
 		multiplyValue(func){
@@ -31,5 +36,4 @@ define(['BSTController', 'HeapController'], function(BSTController, HeapControll
 	}
 
 	return ClosuresController;
-
 });

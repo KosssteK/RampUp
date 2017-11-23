@@ -33,7 +33,12 @@ requirejs.config({
 		LastRotation: 'js/designPatterns/state/states/LastRotation',
 		TypesController: 'js/javaScript/TypesController',
 		Types: 'js/view/Types',
-		ClosuresController: 'js/javaScript/ClosuresController'
+		ClosuresController: 'js/javaScript/closures/ClosuresController',
+		ClosureTest: 'js/javaScript/closures/ClosureTest',
+		EventDispatcher: 'js/javaScript/events/EventDispatcher',
+		Event: 'js/javaScript/events/Event',
+		FunctionUtil: 'js/util/FunctionUtil',
+		EventFlow: 'js/javaScript/events/EventFlow'
 	}
 });
 require(['main']);

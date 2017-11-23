@@ -1,8 +1,9 @@
-define(['Tree', 'TreeModel', 'TreeNodeModel'], function(Tree, TreeModel, TreeNodeModel) {
+define(['Tree', 'TreeModel', 'TreeNodeModel', 'msg', 'FunctionUtil'], function(Tree, TreeModel, TreeNodeModel, msg, FunctionUtil) {
 
 	class BSTController {
 
 		constructor() {
+			FunctionUtil.bind(this);
 			this.treeModel = new TreeModel();
 			this.order = 4;
 		}

@@ -1,8 +1,9 @@
-define(['OneWayModel', 'OneWayNodeModel', 'OneWay'], function(OneWayModel, OneWayNodeModel, OneWay) {
+define(['OneWayModel', 'OneWayNodeModel', 'OneWay', 'FunctionUtil'], function(OneWayModel, OneWayNodeModel, OneWay, FunctionUtil) {
 
 	class OneWayController {
 
 		constructor(){
+			FunctionUtil.bind(this);
 			this.oneWayModel = new OneWayModel();
 			this.order = 0;
 		}

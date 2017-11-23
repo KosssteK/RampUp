@@ -1,8 +1,9 @@
-define(['DataStructureFactory', 'Strategy', 'OneWayController', 'SecondRotation'],
-	function(DataStructureFactory, Strategy, OneWayController, SecondRotation) {
+define(['DataStructureFactory', 'Strategy', 'OneWayController', 'SecondRotation', 'FunctionUtil'],
+	function(DataStructureFactory, Strategy, OneWayController, SecondRotation, FunctionUtil) {
 
 		class Rotation {
 			constructor(state) {
+				FunctionUtil.bind(this);
 				this.state = state;
 				this.stateName = "First State";
 				this.additionFactory = 5;
