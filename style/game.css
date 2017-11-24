@@ -1,5 +1,7 @@
 body{
+    width: 100%;
     text-align: center;
+    display: inline-flex;
 }
 
 .label {
@@ -13,4 +15,14 @@ body{
 
 .jsEventFlow {
     margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#table1 {
+    width: 50%;
+}
+
+#table2 {
+    width: 50%;
+    white-space: pre;
 }

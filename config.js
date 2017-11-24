@@ -36,9 +36,10 @@ requirejs.config({
 		ClosuresController: 'js/javaScript/closures/ClosuresController',
 		ClosureTest: 'js/javaScript/closures/ClosureTest',
 		EventDispatcher: 'js/javaScript/events/EventDispatcher',
-		Event: 'js/javaScript/events/Event',
+		EventNode: 'js/javaScript/events/EventNode',
 		FunctionUtil: 'js/util/FunctionUtil',
-		EventFlow: 'js/javaScript/events/EventFlow'
+		EventFlow: 'js/javaScript/events/EventFlow',
+		Event: 'js/view/Event'
 	}
 });
 require(['main']);

@@ -1,4 +1,4 @@
-define(['msg', 'FunctionUtil'], function(msg, FunctionUtil) {
+define(['msg', 'FunctionUtil', 'Event'], function(msg, FunctionUtil, Event) {
 
 	class EventFlow {
 
@@ -6,19 +6,31 @@ define(['msg', 'FunctionUtil'], function(msg, FunctionUtil) {
 			FunctionUtil.bind(this);
 			this.createListeners();
 			this.createButton();
+			this.createOutputDiv();
 		}
 
 		createListeners() {
 			msg.on("spin/begin", this.onSpinBegin);
 			msg.on("spin/start", this.onSpinStart);
 			msg.on("spin/dataLoaded", this.onSpinDataLoaded);
-			msg.on  ("spin/stop", this.onSpinStop);
+			msg.on("spin/stop", this.onSpinStop);
 			msg.on("column/stoppingStarted", this.onColumnStoppingStarted);
 			msg.on("column/allSymbolsReady", this.onColumnAllSymbolsReady);
 			msg.on("column/stopped", this.onColumnStopped);
 			msg.on("spin/end", this.onSpinEnd);
+			msg.on("initialAnimation/show", this.onInitialAnimationShow);
+			msg.on("initialAnimation/end", this.onInitialAnimationEnd);
 			msg.on("winPresentation/end", this.onWinPresentationEnd);
 			msg.on("spin/definiteEnd", this.onSpinDefiniteEnd);
+		}
+
+		createOutputTemplate() {
+			return "START\n|\nV\n";
+		}
+
+		print() {
+			this.output += "V\nEND";
+			Event.setDivValues(this.output);
 		}
 
 		createButton() {
@@ -28,60 +40,84 @@ define(['msg', 'FunctionUtil'], function(msg, FunctionUtil) {
 			button.onclick = function() {
 				this.onClick();
 			}.bind(this);
-			document.body.appendChild(button);
+			document.getElementById("table2").appendChild(button);
+		}
+
+		createOutputDiv() {
+			let div = document.createElement("div");
+			div.innerHTML = '';
+			div.id = "jsEventFlowOutput";
+			document.getElementById("table2").appendChild(div);
 		}
 
 		onClick() {
+			this.output = this.createOutputTemplate();
 			msg.emit("spin/begin");
 		}
 
 		onSpinBegin() {
-			console.log("spin/begin");
+			this.output += "spin/begin\n|\n";
 			msg.emit("spin/start");
 		}
 
 		onSpinStart() {
-			console.log("spin/start");
+			this.output += "spin/start\n|\n";
 			msg.emit("spin/dataLoaded");
 		}
 
 		onSpinDataLoaded() {
-			console.log("spin/dataLoaded");
+			this.output += "spin/dataLoaded\n|\n";
 			msg.emit("spin/stop");
 		}
 
 		onSpinStop() {
-			console.log("spin/stop");
+			this.output += "spin/stop\n|\n";
 			msg.emit("column/stoppingStarted");
 		}
 
 		onColumnStoppingStarted() {
-			console.log("column/stoppingStarted");
+			this.output += "column/stoppingStarted\n|\n";
 			msg.emit("column/allSymbolsReady");
 		}
 
 		onColumnAllSymbolsReady() {
-			console.log("column/allSymbolsReady");
+			this.output += "column/allSymbolsReady\n|\n";
 			msg.emit("column/stopped");
 		}
 
 		onColumnStopped() {
-			console.log("column/stopped");
+			this.output += "column/stopped\n|\n";
 			msg.emit("spin/end");
 		}
 
 		onSpinEnd() {
-			console.log("spin/end");
+			this.output += "spin/end\n|\n";
+			if (Math.round(Math.random())) {
+				msg.emit("winPresentation/end");
+			}
+			else {
+				msg.emit("initialAnimation/show");
+			}
+		}
+
+		onInitialAnimationShow() {
+			this.output += "initialAnimation/show\n|\n";
+			msg.emit("initialAnimation/end");
+		}
+
+		onInitialAnimationEnd() {
+			this.output += "initialAnimation/end\n|\n";
 			msg.emit("winPresentation/end");
 		}
 
 		onWinPresentationEnd() {
-			console.log("winPresentation/end");
+			this.output += "winPresentation/end\n|\n";
 			msg.emit("spin/definiteEnd");
 		}
 
 		onSpinDefiniteEnd() {
-			console.log("spin/definiteEnd");
+			this.output += "spin/definiteEnd\n|\n";
+			this.print();
 			msg.emit("Zeby pokazac ze nie ma takiego =)");
 		}
 

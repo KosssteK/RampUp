@@ -1,11 +1,10 @@
 define([], function(){
 
-	class Event {
+	class EventNode {
 
 		constructor(key){
 			this.key = key;
 			this.functionList = [];
-			this.once = false;
 		}
 
 		add(func){
@@ -14,5 +13,5 @@ define([], function(){
 
 	}
 
-	return Event;
+	return EventNode;
 });

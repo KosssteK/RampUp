@@ -1,4 +1,4 @@
-define(['OneWayController', 'Event', 'FunctionUtil'], function(OneWayController, Event, FunctionUtil) {
+define(['OneWayController', 'EventNode', 'FunctionUtil'], function(OneWayController, EventNode, FunctionUtil) {
 
 	class EventDispatcher {
 
@@ -37,7 +37,7 @@ define(['OneWayController', 'Event', 'FunctionUtil'], function(OneWayController,
 		}
 
 		createEvent(key, func) {
-			let event = new Event(key);
+			let event = new EventNode(key);
 			event.add(func);
 			return event;
 		}
